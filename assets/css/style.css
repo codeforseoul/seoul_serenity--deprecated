@@ -1,0 +1,29 @@
+body {
+	font-family: 'Malgun Gothic','맑은 고딕',sans-serif;
+}
+
+.icon-weather-64 {
+	width: 64px;
+	/*height: 64px*/
+}
+
+.icon-weather-32 {
+	width: 64px;
+	/*height: 64px*/
+}
+
+.col-xs-6 {
+	padding-left: 3px;
+	padding-right: 3px;
+	height: 172px
+
+}
+
+.row {
+	margin-left: -3px;
+	margin-right: -3px;
+}
+
+.thumbnail {
+	margin-bottom: 5px;
+}
