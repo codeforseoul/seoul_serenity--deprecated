@@ -16,19 +16,33 @@
 <link href="../assets/css/style.css" rel="stylesheet">
 
 </head>
-<body>
+<body class="seoul">
 
   <header class="bar bar-nav">
     <a class="icon icon-left-nav pull-left" href="../index.html" data-ignore="push"></a>
-    <h1 class="title">원순씨 HOT LINE</h1>
+    <h1 class="title"></h1>
   </header>
 
   <div class="content">
 
-    <p class="content-padded">
+
+  <div class="text-center logo-01">
+    <img src="../assets/img/icn-wonsoon.png" class="icn-wonsoon">
+    <img src="../assets/img/logo-01.png" class="img-responsive center-block">
+  </div>
+
+    <p class="content-padded hidden">
       서울시 정책이 잘 실현되고 있는지 정기적으로 원순씨에게 꼭 알려주세요. ^^
     </p>
 
+  <div class="content-padded">
+    <div class="well text-center">
+      <h3>오늘의 시정날씨는 <br>어떤가요? </h3>
+      홍길동님은 <br><strong class="text-primary">"공공데이터 개방"</strong> 전문가 위원이시네요
+    </div>
+  </div>
+
+  <div class="card">
     <ul class="table-view">
       <li class="table-view-cell table-view-divider">나의 사업</li>
       <li class="table-view-cell">
@@ -41,20 +55,24 @@
         <p><small>최근평가 10일전</small></p>
       </li>
     </ul>
+    </div>
   </div>
 
   <div id="reportModal" class="modal">
     
     <header class="bar bar-nav">
       <a class="icon icon-left-nav pull-left" href="#reportModal"></a>
-      <h1 class="title">평가하기</h1>
+      <div class="logo-02"><img src="../assets/img/logo-02.png" class="img-responsive"></div>
+      <h1 class="title"></h1>
     </header>
 
     <div class="content">
       <div class="content-padded">
+        <img src="../assets/img/icn-wonsoon.png" class="icn-wonsoon2">
           <form name="report-form">
-            <div class="alert alert-danger"> 
-              안녕하세요. 박원순입니다. <strong>“공공데이터 개방 정책” 잘 진행이 되고 있나요?</strong>
+            <div class="well text-center">
+              
+              <h3><strong class="text-primary">“공공데이터 개방 정책”</strong></h3>잘 진행이 되고 있나요?
             </div>
 
             <div class="row">
@@ -139,8 +157,14 @@
               </div>
             </div>
 
-            <textarea rows="5"></textarea>
-            <p>위원님의 소중한 의견이 보다 나은 서울을 만듭니다.</p>
+            <div class="well">
+              <textarea rows="5"></textarea>
+              <p>위원님의 소중한 의견이 보다 나은 서울을 만듭니다.</p>
+            </div>
+
+            <hr>
+
+
             <a href="#reportModal" class="btn btn-primary btn-block"> 원순씨에게 보내기</a>
             <a href="#reportModal" class="btn btn-block rb-sidebar-close"> 취소</a>
 

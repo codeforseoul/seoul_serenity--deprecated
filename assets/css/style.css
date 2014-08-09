@@ -1,5 +1,83 @@
-body {
+body.seoul,
+#reportModal {
 	font-family: 'Malgun Gothic','맑은 고딕',sans-serif;
+ 	background-image: url('../img/bg-01.jpg');
+ 	background-repeat: repeat-y;
+	background-size: cover;
+    background-color: #cccccc;
+}
+
+
+.seoul .bar.bar-nav {
+	    background-color: transparent;
+	    border-bottom: none;
+	    box-shadow: none;
+}
+
+.seoul .text-primary {
+	color: #00FFD8
+}
+
+.seoul .bar.bar-nav .title,
+.seoul .bar.bar-nav .title a,
+.seoul .bar .icon {
+	color: #fff
+}
+
+.seoul .logo-02 {
+	padding: 0 0 15px;
+	position: relative;
+}
+
+.seoul .logo-01 .icn-wonsoon {
+	position: absolute;
+	right: 20px;
+	top: -28px;
+	width: 175px
+}
+
+.seoul .icn-wonsoon2 {
+	position: absolute;
+	right: 0px;
+	top: -50px;
+	width: 155px;
+	z-index: 99999
+}
+
+.seoul .logo-01 img {
+	width: 280px
+} 
+
+.seoul .logo-02 {
+	position: absolute;
+	top: 8px;
+	left: 40px
+} 
+
+.seoul .logo-02 img {
+	width: 120px
+} 
+
+.seoul .well {
+	background-color: #000;
+	opacity: 0.7;
+	border: none;
+	color: #fff;
+	line-height: 1.7;
+	margin-bottom: 10px;
+}
+
+.seoul .well h3 {
+	line-height: 1.3;
+	text-shadow: 0 1px 2px rgba(0,0,0,.6);
+}
+
+.seoul .well textarea {
+	color: #333
+}
+
+.seoul .content {
+	background-color: transparent;
 }
 
 .icon-weather-64 {
@@ -19,11 +97,22 @@ body {
 
 }
 
+.text-center {
+	text-align: center
+}
+
 .row {
 	margin-left: -3px;
 	margin-right: -3px;
 }
 
-.thumbnail {
+.seoul .thumbnail {
 	margin-bottom: 5px;
+	background-color: #000;
+	border: none;
+	color: #eee
+}
+
+.seoul .thumbnail p {
+	color: #fff
 }
