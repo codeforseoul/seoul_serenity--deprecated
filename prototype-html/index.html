@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <title>서울 맑음 -  코드포서울</title>
+
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <link href="./assets/css/ratchet.css" rel="stylesheet">
+  <link href="./assets/css/ratchet-theme-ios.css" rel="stylesheet">
+  <link href="./assets/css/style.css" rel="stylesheet">
+
+  <script src="./assets/js/ratchet.js"></script>
+  </head>
+  <body>
+
+    <header class="bar bar-nav">
+      <h1 class="title"> 서울 맑음</h1>
+    </header>
+
+    <div class="content">
+      <p class="content-padded">
+        코드포 서울 프로젝트
+      </p>
+      <div class="card">
+        <ul class="table-view">
+          <li class="table-view-cell">
+            <a class="push-right" href="./wonsoon/index.html" data-ignore="push">
+              <strong>원순씨 입장</strong>
+            </a>
+          </li>
+          <li class="table-view-cell">
+            <a class="push-right" href="#loginModal" data-ignore="push">
+              <strong>전문위원 입장</strong>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+  <!-- modal -->
+  <div id="loginModal" class="modal">
+      
+    <header class="bar bar-nav">
+      <a class="icon icon-left-nav pull-left" href="#loginModal"></a>
+      <h1 class="title">전문위원 인증</h1>
+    </header>
+
+    <div class="content">
+      <div class="content-padded">
+        <form name="login-form">
+          <input type="text" name="username" placeholder="아이디를 입력해주세요">
+          <input type="password" name="password" placeholder="패스워드를 입력해주세요">
+          <a href="./expert/index.html" class="btn btn-primary btn-block" data-ignore="push"> 로그인</a>
+          <a href="#loginModal" class="btn btn-block rb-sidebar-close"> 취소</a>
+        </form>
+        <p>
+          아이디/패스워드를 분실하였습니다.
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+
+</body>
+</html>
