@@ -1,5 +1,5 @@
 ===============================
-Seoul Serenity
+서울 맑음
 ===============================
 
 Code for Seoul - Seoul Serenity
