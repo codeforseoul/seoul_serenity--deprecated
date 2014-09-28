@@ -12,7 +12,7 @@ First, set your app's secret key as an environment variable. For example, exampl
 
 .. code-block:: bash
 
-    export SEOUL_SERENITY_SECRET = 'something-really-secret'
+	export SEOUL_SERENITY_SECRET='something-really-secret'
 
 
 Then run the following commands to bootstrap your environment.
@@ -20,13 +20,13 @@ Then run the following commands to bootstrap your environment.
 
 ::
 
-    git clone https://github.com/codeforseoul/seoul_serenity
-    cd seoul_serenity
-    pip install -r requirements/dev.txt
-    python manage.py db init
-    python manage.py db migrate
-    python manage.py db upgrade
-    python manage.py server
+	git clone https://github.com/codeforseoul/seoul_serenity
+	cd seoul_serenity
+	pip install -r requirements/dev.txt
+	python manage.py db init
+	python manage.py db migrate
+	python manage.py db upgrade
+	python manage.py server
 
 
 
@@ -41,7 +41,7 @@ Shell
 
 To open the interactive shell, run ::
 
-    python manage.py shell
+	python manage.py shell
 
 By default, you will have access to ``app``, ``db``, and the ``User`` model.
 
@@ -51,7 +51,7 @@ Running Tests
 
 To run all tests, run ::
 
-    python manage.py test
+	python manage.py test
 
 
 Migrations
@@ -60,13 +60,25 @@ Migrations
 Whenever a database migration needs to be made. Run the following commmands:
 ::
 
-    python manage.py db migrate
+	python manage.py db migrate
 
 This will generate a new migration script. Then run:
 ::
 
-    python manage.py db upgrade
+	python manage.py db upgrade
 
 To apply the migration.
 
 For a full migration command reference, run ``python manage.py db --help``.
+
+
+Virtualenv
+----------
+
+
+for Mac
+::
+
+	brew install python3
+	virtualenv —python=/user/local/bin/python3 env
+	
