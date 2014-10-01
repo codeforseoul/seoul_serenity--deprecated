@@ -12,7 +12,7 @@ from seoul_serenity.extensions import (
     migrate,
     debug_toolbar,
 )
-from seoul_serenity import public, user
+from seoul_serenity import public, user, api
 
 
 def create_app(config_object=ProdConfig):
@@ -43,6 +43,7 @@ def register_extensions(app):
 def register_blueprints(app):
     app.register_blueprint(public.views.blueprint)
     app.register_blueprint(user.views.blueprint)
+    app.register_blueprint(api.views.blueprint)
     # app.register_blueprint(project.views.blueprint)
     # app.register_blueprint(comment.views.blueprint)
     return None
