@@ -1,45 +1,30 @@
-
 {% extends "layout.html" %}
 {% block content %}
     <h1>Welcome {{ session.username }}</h1>
     <h3>This is the members-only page.</h3>
 
-	<ul>
-		{% for user in users %}
-		<li><a href="{{ url_for('user.member', user_id=user.id) }}">{{ user.username }} - {{ user.email }}</a></li>
+	<div class="panel panel-default">
+		<!-- Default panel contents -->
+		<div class="panel-heading">사용자 목록</div>
+
+		<!-- Table -->
+		<table class="table">
+			<tr>
+				<td><b>ID</b></td></td>
+				<td><b>Username</b></td>
+				<td><b>Email</b></td>
+				<td></td>
+			</tr>
+			{% for user in users %}
+			<tr>
+				<td>{{ user.id }}</td>
+				<td>{{ user.username }}</td>
+				<td>{{ user.email }}</td>
+				<td><a href="{{ url_for('user.member', user_id=user.id) }}">View</a></td>
+			</tr>
 		{% endfor %}
-	</ul>
-
-<div class="panel panel-default">
-  <!-- Default panel contents -->
-  <div class="panel-heading">사용자 목록</div>
-
-  <!-- Table -->
-  <table class="table">
-
-    <tr>
-
-    	<td><b>ID</b></td></td>
-    	<td><b>Username</b></td>
-    	<td><b>Email</b></td>
-    	<td></td>
-    </tr>
-
-	{% for user in users %}
-	<tr>
-		<td>{{ user.id }}</td>
-		<td>{{ user.username }}</td>
-		<td>{{ user.email }}</td>
-		<td><a href="{{ url_for('user.member', user_id=user.id) }}">View</a></td>
-	</tr>
-
-	
-	{% endfor %}
-
-
-  </table>
-</div>
-
+		</table>
+	</div>
 
     <a href="{{ url_for('public.register') }}"><button type="submit" class="btn btn-default">사용자 추가</button></a>
 {% endblock %}

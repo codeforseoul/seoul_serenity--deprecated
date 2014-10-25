@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from flask import Blueprint, render_template, request, redirect, url_for
+from flask import Blueprint, render_template, request, redirect, url_for, flash
 from flask.ext.login import login_required
 
 from .models import Project
@@ -44,8 +44,8 @@ def register():
     if form.validate_on_submit():
         new_project = Project.create(name=form.name.data)
                         # active=True)
-        # flash("Thank you for registering. You can now log in.", 'success')
-        return redirect(url_for('public.home'))
+        flash("새 프로젝트가 생성되었습니다.", 'success')
+        return redirect(url_for('project.detail', project_id=new_project.id))
     # else:
 
     #     flash_errors(form)
