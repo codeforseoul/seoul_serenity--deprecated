@@ -11,6 +11,8 @@ from seoul_serenity.user.forms import RegisterForm
 from seoul_serenity.utils import flash_errors
 from seoul_serenity.database import db
 
+from seoul_serenity.project.models import Project
+
 blueprint = Blueprint('public', __name__, static_folder="../static")
 
 @login_manager.user_loader

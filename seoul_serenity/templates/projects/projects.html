@@ -1,0 +1,12 @@
+
+{% extends "layout.html" %}
+{% block content %}
+
+    <h1>Project List</h1>
+    <h3>This is the members-only page.</h3>
+	<ul>
+		{% for project in projects %}
+		<li><a href="{{ url_for('project.detail', project_id=project.id) }}">{{ project.name }}</a></li>
+		{% endfor %}
+	</ul>
+{% endblock %}

@@ -1,3 +1,3 @@
-'''The user module.'''
+'''The project module.'''
 
 from . import views

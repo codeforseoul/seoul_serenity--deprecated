@@ -3,6 +3,7 @@ from wtforms import TextField, PasswordField
 from wtforms.validators import DataRequired
 
 from seoul_serenity.user.models import User
+from seoul_serenity.project.models import Project
 
 class LoginForm(Form):
     username = TextField('Username', validators=[DataRequired()])

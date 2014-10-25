@@ -1,0 +1,10 @@
+
+{% extends "layout.html" %}
+{% block content %}
+    <h1>Welcome {{ session.username }}</h1>
+    <h2>{{ project.name }}</h2>
+    <ul>
+    	<li>ID : {{ project.id }}</li>
+    	<li>Name : {{ project.name }}</li>
+    </ul>
+{% endblock %}

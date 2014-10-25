@@ -5,14 +5,15 @@ from wtforms.validators import DataRequired, Email, EqualTo, Length
 # from .models import User
 from .models import Project
 
-class RegisterForm(Form):
+class RegisterProjectForm(Form):
+	name = TextField('Project', validators=[DataRequired(), Length(min=3)])
 
-    def __init__(self, *args, **kwargs):
-        super(RegisterForm, self).__init__(*args, **kwargs)
-        self.user = None
+	def __init__(self, *args, **kwargs):
+		super(RegisterProjectForm, self).__init__(*args, **kwargs)
+        # self.user = None
 
-    def validate(self):
-        return True
+	def validate(self):
+		return True
 
 # class RegisterForm(Form):
 #     username = TextField('Username',

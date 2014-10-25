@@ -1,0 +1,18 @@
+
+{% extends "layout.html" %}
+{% block content %}
+<div class="container-narrow">
+  <h1>Register</h1>
+    <br/>
+    <form id="registerForm" class="form form-register" method="POST" action="" role="form">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{form.name.label}}
+                {{form.name(placeholder="Name", class_="form-control")}}
+            </div>
+
+            <p><input class="btn btn-default btn-submit" type="submit" value="Register"></p>
+    </form>
+    <p><em>Already registered?</em> Click <a href="/">here</a> to login.</p>
+</div>
+{% endblock %}

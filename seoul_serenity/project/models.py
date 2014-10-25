@@ -16,8 +16,8 @@ from seoul_serenity.database import (
 class Project(SurrogatePK, Model):
     __tablename__ = 'projects'
     name = Column(db.String(80), unique=False, nullable=False)
-    start_date = Column(db.DateTime, nullable=True)
-    end_date = Column(db.DateTime, nullable=True)
+    # start_date = Column(db.DateTime, nullable=True)
+    # end_date = Column(db.DateTime, nullable=True)
 
     def __init__(self, name, **kwargs):
         db.Model.__init__(self, name=name, **kwargs)
