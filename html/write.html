@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <title>서울 맑음 -  코드포서울</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,target-densitydpi=medium-dpi">
+  <meta name="apple-mobile-web-app-capable" content="no">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./assets/css/font-awesome.min.css" rel="stylesheet">
+  <link href="./assets/css/style.css" rel="stylesheet">
+</head>
+<body id="seoul-03">
+
+
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a href="javascript:history.back()" class="navbar-toggle">
+                    <i class="fa fa-angle-left fa-lg"></i> 이전
+                </a>
+                <a class="navbar-brand navbar-brand-centered" href="index.html"><img src="./assets/img/logo.png" class=""></a>
+            </div>
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="container">
+
+        <p class="lead">
+            베이비부머의 제2인생설계를 위해 구별 인생이모작센터 설치 및 50+캠퍼스 설치 사업
+        </p>
+
+        <form role="form">
+
+            <div class="panel panel-default past-weather">
+                <div class="panel-heading">잘 진행되고 있나요 ?</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-3 weather">
+                            <p class="weather-pic"><img src="./assets/img/weather-02.png"></p>
+                            <p>예산이 없어요</p>
+                            <label>
+                                <input type="radio" name="weather" value="1">
+                            </label>
+                        </div>
+                        <div class="col-xs-3 weather">
+                            <p class="weather-pic"><img src="./assets/img/weather-03.png"></p>
+                            <p>협업이 필요해요</p>
+                            <label>
+                                <input type="radio" name="weather" value="2">
+                            </label>
+                        </div>
+                        <div class="col-xs-3 weather">
+                            <p class="weather-pic"><img src="./assets/img/weather-04.png"></p>
+                            <p>시장님 생각이 궁금해요</p>
+                            <label>
+                                <input type="radio" name="weather" value="3">
+                            </label>
+                        </div>
+                        <div class="col-xs-3 weather">
+                            <p class="weather-pic"><img src="./assets/img/weather-02.png"></p>
+                            <p>사업이 늦어져요</p>
+                            <label>
+                                <input type="radio" name="weather" value="4" checked>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body" style="padding-top:0">
+                    <div class="form-group">
+                        <label class="sr-only">의견달기</label>
+                        <textarea class="form-control" rows="5" placeholder="소중한 의견을 적어주세요."></textarea>
+                    </div>
+                </div>    
+            </div>
+
+        
+        </form>
+
+        <button type="submit" class="btn btn-primary btn-lg btn-block alert">평가 완료하기</button>
+        
+        <div class="btn-group btn-group-justified btn-group-lg seoul-buttons">
+            <a href="view.html" class="btn btn-default">현재평가</a>
+            <a href="list.html" class="btn btn-default">지난평가</a>
+        </div>
+
+    </div>
+
+
+    <footer class="seoul-footer">
+        Code for seoul
+    </footer>
+
+</div>
+
+<script src="./assets/js/jquery-2.0.2.min.js"></script>
+<script src="./assets/js/bootstrap.min.js"></script>
+<script src="./assets/js/script.js"></script>
+
+<!-- bootbox code -->
+<script src="./assets/js/bootbox.min.js"></script>
+<script>
+    $(document).on("click", ".alert", function(e) {
+
+    bootbox.dialog({
+      message: "<h2>평가정보를 <br>전송하기겠습니까?.</h2> <p class=wonson-03'><img src='./assets/img/wonson-03.png'></p>",
+      title: "평가완료",
+      buttons: {
+        success: {
+          label: "확인",
+          className: "btn-primary btn-block btn-lg",
+          callback: function() {
+
+          }
+        },
+        danger: {
+          label: "취소!",
+          className: "btn-default btn-block btn-lg",
+          callback: function() {
+
+          }
+        }
+      }
+    });
+
+    });
+</script>
+
+</body>
+</html>
