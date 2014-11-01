@@ -8,9 +8,28 @@ blueprint = Blueprint("client", __name__, url_prefix='/client',
                         static_folder="../static")
 
 
+# 우선은 페이지 하나 하나로 routing 시킴
+
 @blueprint.route("/")
 def home():
+	return render_template("client/index.html")
+
+@blueprint.route("/view")
+def view():
+	return render_template("client/view.html")
+
+@blueprint.route("/write")
+def write():
+	return render_template("client/write.html")
+
+@blueprint.route("/list")
+def list():
+	return render_template("client/list.html")
+
+@blueprint.route("/login")
+def login():
 	return render_template("client/login.html")
+
 
 # @blueprint.route("/")
 # @login_required

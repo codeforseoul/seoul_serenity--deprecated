@@ -10,9 +10,9 @@
   <meta name="apple-mobile-web-app-capable" content="no">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-  <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
-  <link href="./assets/css/font-awesome.min.css" rel="stylesheet">
-  <link href="./assets/css/style.css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/css/font-awesome.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/css/style.css') }}" rel="stylesheet">
 </head>
 <body id="seoul-03">
 
@@ -23,7 +23,7 @@
                 <a href="javascript:history.back()" class="navbar-toggle">
                     <i class="fa fa-angle-left fa-lg"></i> 이전
                 </a>
-                <a class="navbar-brand navbar-brand-centered" href="index.html"><img src="./assets/img/logo.png" class=""></a>
+                <a class="navbar-brand navbar-brand-centered" href="index.html"><img src="{{ url_for('static', filename='assets/img/logo.png') }}" class=""></a>
             </div>
         </div><!-- /.container-fluid -->
     </nav>
@@ -42,7 +42,7 @@
 
                 <div class="row">
                     <div class="col-xs-12 weather">
-                        <p><img src="./assets/img/weather-02.png"></p>
+                        <p><img src="{{ url_for('static', filename='assets/img/weather-02.png') }}"></p>
                         <p>예산이 없어요</p>
                     </div>
                 </div>
@@ -72,9 +72,9 @@
         Code for seoul
     </footer>
 
-<script src="./assets/js/jquery-2.0.2.min.js"></script>
-<script src="./assets/js/bootstrap.min.js"></script>
-<script src="./assets/js/script.js"></script>
+<script src="{{ url_for('static', filename='assets/js/jquery-2.0.2.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/plugin/bootstrap-customize/3.2.0/js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/script.js') }}"></script>
 
 
 

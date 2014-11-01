@@ -10,9 +10,9 @@
   <meta name="apple-mobile-web-app-capable" content="no">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-  <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
-  <link href="./assets/css/font-awesome.min.css" rel="stylesheet">
-  <link href="./assets/css/style.css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/css/font-awesome.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/css/style.css') }}" rel="stylesheet">
 </head>
 <body id="seoul-02">
 
@@ -23,7 +23,7 @@
                 <a href="index.html" class="navbar-toggle">
                     <i class="fa fa-sign-out fa-lg"></i>
                 </a>
-                <a class="navbar-brand navbar-brand-centered" href="./login.html"><img src="./assets/img/logo.png" class=""></a>
+                <a class="navbar-brand navbar-brand-centered" href="login.html"><img src="{{ url_for('static', filename='assets/img/logo.png') }}" class=""></a>
             </div>
         </div><!-- /.container-fluid -->
     </nav>
@@ -31,7 +31,7 @@
     <div class="container">
 
         <h1 class="well text-center">
-            <span class="wonson-02"><img src="./assets/img/wonson-02.png"></span>
+            <span class="wonson-02"><img src="{{ url_for('static', filename='assets/img/wonson-02.png') }}"></span>
             홍길동 위원님 <br>
             이번달 시정날씨는<br>어떤가요?
         </h1> 
@@ -53,9 +53,11 @@
         </div>
     </footer>
 
-<script src="./assets/js/jquery-2.0.2.min.js"></script>
-<script src="./assets/js/bootstrap.min.js"></script>
-<script src="./assets/js/script.js"></script>
+<script src="{{ url_for('static', filename='assets/js/jquery-2.0.2.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/plugin/bootstrap-customize/3.2.0/js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/script.js') }}"></script>
+
+
 
 </body>
 </html>
