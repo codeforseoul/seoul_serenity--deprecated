@@ -4,7 +4,7 @@ from flask.ext.login import login_required
 
 from seoul_serenity.client_mayor.models import Client
 
-blueprint = Blueprint("client_mayor", __name__, url_prefix='/client_mayor',
+blueprint = Blueprint("client_mayor", __name__, url_prefix='/client/mayor',
                         static_folder="../static")
 
 
@@ -12,23 +12,23 @@ blueprint = Blueprint("client_mayor", __name__, url_prefix='/client_mayor',
 
 @blueprint.route("/")
 def home():
-	return render_template("client_mayor/index.html")
+	return render_template("client/mayor/index.html")
 
 @blueprint.route("/view")
 def view():
-	return render_template("client_mayor/view.html")
+	return render_template("client/mayor/view.html")
 
 @blueprint.route("/write")
 def write():
-	return render_template("client_mayor/write.html")
+	return render_template("client/mayor/write.html")
 
 @blueprint.route("/list")
 def list():
-	return render_template("client_mayor/list.html")
+	return render_template("client/mayor/list.html")
 
 @blueprint.route("/login")
 def login():
-	return render_template("client_mayor/login.html")
+	return render_template("client/mayor/login.html")
 
 
 # @blueprint.route("/")

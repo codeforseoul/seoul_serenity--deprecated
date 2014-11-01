@@ -4,7 +4,7 @@ from flask.ext.login import login_required
 
 from seoul_serenity.client_committee.models import Client
 
-blueprint = Blueprint("client_committee", __name__, url_prefix='/client_committee',
+blueprint = Blueprint("client_committee", __name__, url_prefix='/client/committee',
                         static_folder="../static")
 
 
@@ -12,23 +12,23 @@ blueprint = Blueprint("client_committee", __name__, url_prefix='/client_committe
 
 @blueprint.route("/")
 def home():
-	return render_template("client_committee/index.html")
+	return render_template("client/committee/index.html")
 
 @blueprint.route("/view")
 def view():
-	return render_template("client_committee/view.html")
+	return render_template("client/committee/view.html")
 
 @blueprint.route("/write")
 def write():
-	return render_template("client_committee/write.html")
+	return render_template("client/committee/write.html")
 
 @blueprint.route("/list")
 def list():
-	return render_template("client_committee/list.html")
+	return render_template("client/committee/list.html")
 
 @blueprint.route("/login")
 def login():
-	return render_template("client_committee/login.html")
+	return render_template("client/committee/login.html")
 
 
 # @blueprint.route("/")
