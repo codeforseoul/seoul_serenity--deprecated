@@ -3,8 +3,10 @@
 {% block content %}
     <h1>Welcome {{ session.username }}</h1>
     <h3>This is the members-only page.</h3>
-    <h3> {{ username }} - {{ email }} </h3>
-
+    <h3> {{ username }} -  </h3>
+<div>
+    <span class="glyphicon glyphicon-envelope"></span> {{ email }}
+</div>
     <button type="submit" class="btn btn-default">정보 변경</button>
     <button type="submit" class="btn btn-default">프로젝트 할당</button>
     <button type="submit" class="btn btn-default">삭제</button>
