@@ -30,13 +30,13 @@ def projects():
     projects = Project.query.all()
     return render_template("projects/projects.html", projects=projects)
 
-@blueprint.route("/add")
-@login_required
-def add():
-	project = Project.create(name="Hello")
-	# db.session.add(project)
-	# db.session.commit()
-	return render_template("projects/add.html")
+# @blueprint.route("/add")
+# @login_required
+# def add():
+# 	project = Project.create(name="Hello")
+# 	# db.session.add(project)
+# 	# db.session.commit()
+# 	return render_template("projects/add.html")
 
 @blueprint.route("/register/", methods=['GET', 'POST'])
 def register():
@@ -59,7 +59,7 @@ def register():
 @login_required
 def detail(project_id):
 	# project =  Project("헬로우")
-	project = Project.query.filter_by(id=project_id).first_or_404()
+	project = Project.get_by_id(project_id)
 	return render_template("projects/project.html", project=project)
 
 
