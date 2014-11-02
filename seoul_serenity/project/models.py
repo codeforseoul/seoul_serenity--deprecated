@@ -32,6 +32,43 @@ class Project(SurrogatePK, Model):
     def __repr__(self):
         return '<Project({name})>'.format(name=self.name)
 
+class project_iteration(SurrogatePK, Model):
+    __tablename__ = 'project_iteration'
+
+    p_id = Column(db.Integer,nullable=False)
+    v_id = Column(db.Integer,nullable=False)
+    week = Column(db.Integer,nullable=False)
+    created_at = Column(db.DateTime, nullable=False, default=dt.datetime.utcnow)
+
+    def __init__(self,  **kwargs):
+        db.Model.__init__(self, **kwargs)
+
+# project vote #
+class project_vote(SurrogatePK, Model):
+    __tablename__ = 'project_vote'
+    
+    u_id = Column(db.Integer,nullable=False)
+    score = Column(db.Integer,nullable=False)
+    comment = Column(db.String(128),nullable=True)
+    created_at = Column(db.DateTime, nullable=False, default=dt.datetime.utcnow)
+
+    def __init__(self,  **kwargs):
+        db.Model.__init__(self, **kwargs)
+
+# project summary #
+class project_summary(SurrogatePK, Model):
+
+    __tablename__ = 'project_summary'
+    
+    p_id = Column(db.Integer,nullable=False)
+    summary_type = Column(db.Integer,nullable=False)
+    score = Column(db.Float,nullable=True,default='0.0')
+    created_at = Column(db.DateTime, nullable=False, default=dt.datetime.utcnow)
+
+    def __init__(self,  **kwargs):
+        db.Model.__init__(self, **kwargs)
+        
+
 # class Role(SurrogatePK, Model):
 #     __tablename__ = 'roles'
 #     name = Column(db.String(80), unique=True, nullable=False)
