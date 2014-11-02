@@ -73,6 +73,9 @@ class User_project(SurrogatePK,Model):
     # u_id = Column(db.Integer, db.ForeignKey('users.id'))
     # p_id = Column(db.Integer, db.ForeignKey('projects.id'))
     
+    u_id = Column(db.Integer, nullable=False);
+    p_id = Column(db.Integer, nullable=False);
+
     created_at = Column(db.DateTime, nullable=False) 
     display_yn = Column(db.Boolean, default=True)
 
