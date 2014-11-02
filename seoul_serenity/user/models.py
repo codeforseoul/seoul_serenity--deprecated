@@ -76,7 +76,7 @@ class User_project(SurrogatePK,Model):
     u_id = Column(db.Integer, nullable=False);
     p_id = Column(db.Integer, nullable=False);
 
-    created_at = Column(db.DateTime, nullable=False) 
+    created_at = Column(db.DateTime, nullable=True) 
     display_yn = Column(db.Boolean, default=True)
 
     # projects = db.relationship('Project',backref='user_project',lazy='dynamic')
@@ -84,6 +84,9 @@ class User_project(SurrogatePK,Model):
     def __init__(self, **kwargs):
         db.Model.__init__(self, **kwargs)
 
+
+    def __repr__(self):
+        return 'todo'
 
 ### minwook ###
 # project 

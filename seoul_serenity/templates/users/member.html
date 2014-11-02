@@ -3,12 +3,13 @@
 {% block content %}
     <h1>Welcome {{ session.username }}</h1>
     <h3>This is the members-only page.</h3>
-    <h3> {{ username }} -  </h3>
+    <h3> {{ user.username }} -  </h3>
 <div>
-    <span class="glyphicon glyphicon-envelope"></span> {{ email }}
+    <span class="glyphicon glyphicon-envelope"></span> {{ user.email }}
 </div>
     <button type="submit" class="btn btn-default">정보 변경</button>
-    <button type="submit" class="btn btn-default">프로젝트 할당</button>
+    <a href="{{ url_for('user.assign', user_id=user.id) }}">
+    <button type="submit" class="btn btn-default">프로젝트 할당</button></a>
     <button type="submit" class="btn btn-default">삭제</button>
     <button type="submit" class="btn btn-default">프로젝트 목록</button>
 

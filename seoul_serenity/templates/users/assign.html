@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <h1>프로젝트 할당하기</h1>
+    <h3>This is the members-only page.</h3>
+
+	<div class="panel panel-default">
+		<!-- Default panel contents -->
+		<div class="panel-heading">프로젝트 할당하기</div>
+
+		<!-- Table -->
+		<table class="table">
+		<tr>
+			<td><b>ID</b></td></td>
+			<td><b>프로젝트 이름</b></td>
+
+			<td></td>
+		</tr>
+		{% for project in projects %}
+		<tr>
+			<td>{{ project.id }}</td>
+			<td>{{ project.name }}</td>
+			<td><a href="{{ url_for('user.assigned', user_id=user_id, project_id=project.id) }}">할당하기
+			</a></td>
+		</tr>
+		{% endfor %}
+		</table>
+	</div>
+
+
+{% endblock %}

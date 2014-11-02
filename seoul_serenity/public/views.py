@@ -48,7 +48,10 @@ def register():
         new_user = User.create(username=form.username.data,
                         email=form.email.data,
                         password=form.password.data,
+                        first_name=form.name.data,
+                        last_name=form.familyname.data,
                         active=True)
+        # new_user.update(commit=True, first_name=form.name.data, last_name=form.familyname.data)
         flash("Thank you for registering. You can now log in.", 'success')
         return redirect(url_for('public.home'))
     else:
