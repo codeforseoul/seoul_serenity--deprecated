@@ -13,6 +13,8 @@
 		<tr>
 			<td><b>ID</b></td></td>
 			<td><b>프로젝트 이름</b></td>
+			<td><b>프로젝트 시작일</b></td>
+			<td><b>프로젝트 종료일</b></td>
 
 			<td></td>
 		</tr>
@@ -20,6 +22,8 @@
 		<tr>
 			<td>{{ project.id }}</td>
 			<td>{{ project.name }}</td>
+			<td>{{ project.start_date }}</td>
+			<td>{{ project.end_date }}</td>
 			<td><a href="{{ url_for('project.detail', project_id=project.id) }}">View</a></td>
 		</tr>
 		{% endfor %}

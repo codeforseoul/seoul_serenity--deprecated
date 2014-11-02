@@ -42,7 +42,10 @@ def add():
 def register():
     form = RegisterProjectForm(request.form, csrf_enabled=False)
     if form.validate_on_submit():
-        new_project = Project.create(name=form.name.data)
+        new_project = Project.create(name=form.name.data
+            ,start_date=form.start_date.data
+            ,end_date=form.end_date.data
+            ,description=form.description.data)
                         # active=True)
         flash("새 프로젝트가 생성되었습니다.", 'success')
         return redirect(url_for('project.detail', project_id=new_project.id))
