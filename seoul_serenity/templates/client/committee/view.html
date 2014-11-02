@@ -23,7 +23,7 @@
                 <a href="javascript:history.back()" class="navbar-toggle">
                     <i class="fa fa-angle-left fa-lg"></i> 이전
                 </a>
-                <a class="navbar-brand navbar-brand-centered" href="index.html"><img src="{{ url_for('static', filename='assets/img/logo.png') }}" class=""></a>
+                <a class="navbar-brand navbar-brand-centered" href="{{ url_for('client_committee.home') }}"><img src="{{ url_for('static', filename='assets/img/logo.png') }}" class=""></a>
             </div>
         </div><!-- /.container-fluid -->
     </nav>
@@ -31,7 +31,7 @@
     <div class="container">
 
         <p class="lead">
-            베이비부머의 제2인생설계를 위해 구별 인생이모작센터 설치 및 50+캠퍼스 설치 사업
+            {{ project.name }}
         </p>
 
         <div class="panel panel-default past-weather">
@@ -68,9 +68,7 @@
 
     </div>
 
-    <footer class="seoul-footer">
-        Code for seoul
-    </footer>
+    {% include "client/committee/footer.html" %}
 
 <script src="{{ url_for('static', filename='assets/js/jquery-2.0.2.min.js') }}"></script>
 <script src="{{ url_for('static', filename='assets/plugin/bootstrap-customize/3.2.0/js/bootstrap.min.js') }}"></script>

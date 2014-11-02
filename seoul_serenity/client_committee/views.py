@@ -3,6 +3,7 @@ from flask import Blueprint, render_template
 from flask.ext.login import login_required
 
 from seoul_serenity.client_committee.models import Client
+from seoul_serenity.project.models import Project
 
 blueprint = Blueprint("client_committee", __name__, url_prefix='/client/committee',
                         static_folder="../static")
@@ -12,15 +13,20 @@ blueprint = Blueprint("client_committee", __name__, url_prefix='/client/committe
 
 @blueprint.route("/")
 def home():
-	return render_template("client/committee/index.html")
+	projects = Project.query.all()
+	return render_template("client/committee/index.html", projects=projects)
 
-@blueprint.route("/view")
-def view():
-	return render_template("client/committee/view.html")
+# @blueprint.route("/view")
+@blueprint.route("/view/<int:project_id>")
+def view(project_id):
+	project = Project.query.filter_by(id=project_id).first_or_404()	
+	return render_template("client/committee/view.html", project=project)
 
-@blueprint.route("/write")
-def write():
-	return render_template("client/committee/write.html")
+# @blueprint.route("/write")
+@blueprint.route("/write/<int:project_id>")
+def write(project_id):
+	project = Project.query.filter_by(id=project_id).first_or_404()
+	return render_template("client/committee/write.html", project=project)
 
 @blueprint.route("/list")
 def list():

@@ -41,22 +41,22 @@
         </div>
 
         <div class="list-group">
-            <a href="write.html" class="list-group-item"><i class="fa fa-angle-right fa-lg pull-right"></i><span class="label label-danger">미완료</span> 인생이모작센터 설치 </a>
-            <a href="view.html" class="list-group-item"><i class="fa fa-angle-right fa-lg pull-right"></i><span class="label label-default">완료</span> 어린이놀이터 혁신 사업 </a>
-            <a href="view.html" class="list-group-item"><i class="fa fa-angle-right fa-lg pull-right"></i><span class="label label-default">완료</span> 국공립어린이집 1000개소 추가 확충 사업</a>
+            {% for project in projects %}
+            <a href="{{ url_for('client_committee.view', project_id=project.id) }}" class="list-group-item">
+              <i class="fa fa-angle-right fa-lg pull-right"></i>
+              <span class="label label-danger">미완료</span> {{ project.name }}</a>
+            {% endfor %}
         </div>
+
     </div>
 
-   <footer class="seoul-footer">
-        <div class="container">
-            Code for seoul
-        </div>
-    </footer>
+
+
+    {% include "client/committee/footer.html" %}
 
 <script src="{{ url_for('static', filename='assets/js/jquery-2.0.2.min.js') }}"></script>
 <script src="{{ url_for('static', filename='assets/plugin/bootstrap-customize/3.2.0/js/bootstrap.min.js') }}"></script>
 <script src="{{ url_for('static', filename='assets/js/script.js') }}"></script>
-
 
 
 </body>
