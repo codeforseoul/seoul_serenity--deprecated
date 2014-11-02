@@ -25,12 +25,15 @@ class Project(SurrogatePK, Model):
     modified_user_id = Column(db.Integer,nullable=True)
     display_yn = Column(db.Boolean, default=True)
 
-
     def __init__(self, name, **kwargs):
         db.Model.__init__(self, name=name, **kwargs)
 
     def __repr__(self):
         return '<Project({name})>'.format(name=self.name)
+
+    def datetimeformat(value, format='%d-%m-%Y'):
+        return value.strftime(format,vlaue.gmtime())    
+
 
 class project_iteration(SurrogatePK, Model):
     __tablename__ = 'project_iteration'

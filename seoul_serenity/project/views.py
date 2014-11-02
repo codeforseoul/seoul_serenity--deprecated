@@ -62,4 +62,13 @@ def detail(project_id):
 	project = Project.query.filter_by(id=project_id).first_or_404()
 	return render_template("projects/project.html", project=project)
 
+@blueprint.route("/close/<int:project_id>")
+@login_required
+def close(project_id):
+    project = Project.query.filter_by(id=project_id).first_or_404()
+    if project != None :
+        project.display_yn = False
+        #project.update(self, True, project)
+
+    return redirect('projects')
 

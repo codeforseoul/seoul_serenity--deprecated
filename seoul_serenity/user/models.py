@@ -56,6 +56,9 @@ class User(UserMixin, SurrogatePK, Model):
     def check_password(self, value):
         return bcrypt.check_password_hash(self.password, value)
 
+    def get_id(self):
+        return unicode(self.id)
+            
     @property
     def full_name(self):
         return "{0} {1}".format(self.first_name, self.last_name)

@@ -17,6 +17,7 @@
 			<td><b>프로젝트 종료일</b></td>
 
 			<td></td>
+			<td></td>
 		</tr>
 		{% for project in projects %}
 		<tr>
@@ -25,6 +26,7 @@
 			<td>{{ project.start_date }}</td>
 			<td>{{ project.end_date }}</td>
 			<td><a href="{{ url_for('project.detail', project_id=project.id) }}">View</a></td>
+			<td><a href="{{ url_for('project.close', project_id=project.id) }}">Close</a></td>
 		</tr>
 		{% endfor %}
 		</table>
