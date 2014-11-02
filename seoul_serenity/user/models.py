@@ -38,10 +38,10 @@ class User(UserMixin, SurrogatePK, Model):
     last_name = Column(db.String(30), nullable=True)
     active = Column(db.Boolean(), default=False)
     is_admin = Column(db.Boolean(), default=False)
+    user_type = Column(db.Integer, default=0)
 
-    # minwook
-    # user_type = Column(db.Integer, default=0)
-
+    user_projects = db.relationship('User_project', backref='users',lazy='dynamic')
+    
     def __init__(self, username, email, password=None, **kwargs):
         db.Model.__init__(self, username=username, email=email, **kwargs)
         if password:
@@ -61,3 +61,37 @@ class User(UserMixin, SurrogatePK, Model):
 
     def __repr__(self):
         return '<User({username!r})>'.format(username=self.username)
+
+
+### minwook ###
+# user_project
+class User_project(SurrogatePK,Model):
+    __tablename__ = 'user_project'
+    u_id = Column(db.Integer, db.ForeignKey('users.id'))
+    p_id = Column(db.Integer, db.ForeignKey('projects.id'))
+    
+    created_at = Column(db.DateTime, nullable=False) 
+    display_yn = Column(db.Boolean, default=True)
+
+    # projects = db.relationship('Project',backref='user_project',lazy='dynamic')
+    
+    def __init__(self, **kwargs):
+        db.Model.__init__(self, **kwargs)
+
+
+### minwook ###
+# project 
+class Project(SurrogatePK, Model):
+    __tablename__ = 'projects'
+    name = Column(db.String(80), unique=False, nullable=False)
+    start_date = Column(db.DateTime, nullable=True)
+    end_date = Column(db.DateTime, nullable=True)
+    # minwook
+    description = Column(db.Text, nullable=True)
+    created_u_id = Column(db.Integer, nullable=False)
+    modified_at = Column(db.DateTime, nullable=True)
+    modified_u_id = Column(db.Integer, nullable=True)
+    display_yn = Column(db.Boolean, default=True)
+
+    def __init__(self, name, **kwargs):
+        db.Model.__init__(self, name=name, **kwargs)
