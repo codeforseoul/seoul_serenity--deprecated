@@ -16,8 +16,15 @@ from seoul_serenity.database import (
 class Project(SurrogatePK, Model):
     __tablename__ = 'projects'
     name = Column(db.String(80), unique=False, nullable=False)
-    # start_date = Column(db.DateTime, nullable=True)
-    # end_date = Column(db.DateTime, nullable=True)
+    start_date = Column(db.DateTime, nullable=True)
+    end_date = Column(db.DateTime, nullable=True)
+    description = Column(db.Text, nullable=True)
+    created_at = Column(db.DateTime, nullable=False, default=dt.datetime.utcnow)
+    created_user_id = Column(db.Integer,nullable=True)
+    modified_at = Column(db.DateTime, nullable=True)
+    modified_user_id = Column(db.Integer,nullable=True)
+    display_yn = Column(db.Boolean, default=True)
+
 
     def __init__(self, name, **kwargs):
         db.Model.__init__(self, name=name, **kwargs)
