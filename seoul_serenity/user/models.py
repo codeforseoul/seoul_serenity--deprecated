@@ -40,7 +40,8 @@ class User(UserMixin, SurrogatePK, Model):
     is_admin = Column(db.Boolean(), default=False)
     user_type = Column(db.Integer, default=0)
 
-    user_projects = db.relationship('User_project', backref='users',lazy='dynamic')
+    # TODO : next plan
+    # user_projects = db.relationship('User_project', backref='users',lazy='dynamic')
     
     def __init__(self, username, email, password=None, **kwargs):
         db.Model.__init__(self, username=username, email=email, **kwargs)
@@ -67,8 +68,10 @@ class User(UserMixin, SurrogatePK, Model):
 # user_project
 class User_project(SurrogatePK,Model):
     __tablename__ = 'user_project'
-    u_id = Column(db.Integer, db.ForeignKey('users.id'))
-    p_id = Column(db.Integer, db.ForeignKey('projects.id'))
+    
+    # TODO : next plan
+    # u_id = Column(db.Integer, db.ForeignKey('users.id'))
+    # p_id = Column(db.Integer, db.ForeignKey('projects.id'))
     
     created_at = Column(db.DateTime, nullable=False) 
     display_yn = Column(db.Boolean, default=True)
@@ -81,17 +84,17 @@ class User_project(SurrogatePK,Model):
 
 ### minwook ###
 # project 
-class Project(SurrogatePK, Model):
-    __tablename__ = 'projects'
-    name = Column(db.String(80), unique=False, nullable=False)
-    start_date = Column(db.DateTime, nullable=True)
-    end_date = Column(db.DateTime, nullable=True)
-    # minwook
-    description = Column(db.Text, nullable=True)
-    created_u_id = Column(db.Integer, nullable=False)
-    modified_at = Column(db.DateTime, nullable=True)
-    modified_u_id = Column(db.Integer, nullable=True)
-    display_yn = Column(db.Boolean, default=True)
+# class Project(SurrogatePK, Model):
+#     __tablename__ = 'projects'
+#     name = Column(db.String(80), unique=False, nullable=False)
+#     start_date = Column(db.DateTime, nullable=True)
+#     end_date = Column(db.DateTime, nullable=True)
+#     # minwook
+#     description = Column(db.Text, nullable=True)
+#     created_u_id = Column(db.Integer, nullable=False)
+#     modified_at = Column(db.DateTime, nullable=True)
+#     modified_u_id = Column(db.Integer, nullable=True)
+#     display_yn = Column(db.Boolean, default=True)
 
-    def __init__(self, name, **kwargs):
-        db.Model.__init__(self, name=name, **kwargs)
+#     def __init__(self, name, **kwargs):
+#         db.Model.__init__(self, name=name, **kwargs)
