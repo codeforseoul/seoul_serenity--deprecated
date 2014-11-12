@@ -5,6 +5,7 @@ from flask.ext.login import login_required, current_user
 
 from seoul_serenity.client_committee.models import Client
 from seoul_serenity.project.models import Project
+from seoul_serenity.user.models import User_project, User
 
 blueprint = Blueprint("client_committee", __name__, url_prefix='/client/committee',
                         static_folder="../static")
