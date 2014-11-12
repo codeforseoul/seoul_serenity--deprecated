@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from flask import Blueprint, render_template
-from flask.ext.login import login_required
+from flask.ext.login import login_required, current_user
+# from flask.ext.login import login_user, login_required, logout_user, current_user
 
 from seoul_serenity.client_committee.models import Client
 from seoul_serenity.project.models import Project
@@ -13,7 +14,13 @@ blueprint = Blueprint("client_committee", __name__, url_prefix='/client/committe
 
 @blueprint.route("/")
 def home():
-	projects = Project.query.all()
+	projects = []
+# TODO : replace u_id=1 to current_user 
+	# if current_user and current_user.is_authenticated():
+	user_projects = User_project.query.filter_by(u_id=1)
+	for user_project in user_projects:
+		project = Project.get_by_id(user_project.p_id)
+		projects.append(project)
 	return render_template("client/committee/index.html", projects=projects)
 
 # @blueprint.route("/view")

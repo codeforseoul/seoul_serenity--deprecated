@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 from flask import Blueprint, render_template, request, redirect, url_for, flash
-from flask.ext.login import login_required
-
+# from flask.ext.login import login_required
+from flask.ext.login import login_user, login_required, logout_user, current_user
+from seoul_serenity.utils import admin_required
 from .models import Project
 from .forms import RegisterProjectForm
 from seoul_serenity.database import (
@@ -22,7 +23,13 @@ blueprint = Blueprint("project", __name__, url_prefix='/projects',
 # /<PID> (GET) : 특정 프로젝트 정보
 # /<PID> (POST) : 특정 프로젝트 정보 입력
 
-
+@blueprint.route("/test")
+# @login_required
+def ttt():
+    if current_user == None:
+        return current_user.username
+    else:
+        return "....."
 
 @blueprint.route("/")
 @login_required
@@ -37,6 +44,11 @@ def projects():
 # 	# db.session.add(project)
 # 	# db.session.commit()
 # 	return render_template("projects/add.html")
+
+@blueprint.route("/test")
+@admin_required
+def testing():
+    return "testing"
 
 @blueprint.route("/register/", methods=['GET', 'POST'])
 def register():
