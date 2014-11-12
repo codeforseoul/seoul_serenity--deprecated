@@ -13,6 +13,8 @@ from seoul_serenity.database import (
     SurrogatePK,
 )
 
+# TODO : should support python2/3
+from seoul_serenity.compat import unicode
 
 class Role(SurrogatePK, Model):
     __tablename__ = 'roles'
@@ -86,7 +88,6 @@ class User_project(SurrogatePK,Model):
     
     def __init__(self, **kwargs):
         db.Model.__init__(self, **kwargs)
-
 
     def __repr__(self):
         return 'todo'

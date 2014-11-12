@@ -20,6 +20,12 @@ def load_user(id):
     return User.get_by_id(int(id))
 
 
+# Admin, Mayor, Committee
+@blueprint.route("/index")
+def index():
+    return render_template("public/index.html")
+
+
 @blueprint.route("/", methods=["GET", "POST"])
 def home():
     form = LoginForm(request.form)
