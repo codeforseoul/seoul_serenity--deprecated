@@ -3,15 +3,17 @@
 from flask import (Blueprint, request, render_template, flash, url_for,
                     redirect, session)
 from flask.ext.login import login_user, login_required, logout_user
+from datetime import datetime, timedelta
 
 from seoul_serenity.extensions import login_manager
-from seoul_serenity.user.models import User
+from seoul_serenity.user.models import User, User_project
 from seoul_serenity.public.forms import LoginForm
 from seoul_serenity.user.forms import RegisterForm
 from seoul_serenity.utils import flash_errors
 from seoul_serenity.database import db
 
 from seoul_serenity.project.models import Project
+
 
 blueprint = Blueprint('public', __name__, static_folder="../static")
 
@@ -25,6 +27,28 @@ def load_user(id):
 def index():
     return render_template("public/index.html")
 
+# Admin, Mayor, Committee
+@blueprint.route("/put-dummy-data")
+def putTestData():
+    User.query.delete()
+    Project.query.delete()
+    User_project.query.delete()
+    User.create(username=u"김위원",email="comm1@test.com",password="testtest",first_name="ilyong",last_name="shin",active=True)
+    User.create(username=u"박위원",email="comm2@test.com",password="testtest",first_name="ilyong",last_name="shin",active=True)
+    User.create(username=u"정의원",email="comm3@test.com",password="testtest",first_name="ilyong",last_name="shin",active=True)
+    Project.create(name=u"어린이집늘리기",start_date=datetime.now(),end_date=(datetime.now()+timedelta(days=7)),description=u"어린이집을 늘려야 하거든요")
+    Project.create(name=u"경로당늘리기",start_date=datetime.now(),end_date=(datetime.now()+timedelta(days=7)),description=u"경로당을 늘려야 하거든요")
+    Project.create(name=u"카페늘리기",start_date=datetime.now(),end_date=(datetime.now()+timedelta(days=7)),description=u"카페를 늘려야 하거든요")
+    User_project.create(u_id=1, p_id=1)
+    User_project.create(u_id=2, p_id=1)
+    User_project.create(u_id=3, p_id=1)
+    User_project.create(u_id=1, p_id=2)
+    User_project.create(u_id=2, p_id=2)
+    User_project.create(u_id=3, p_id=2)
+    User_project.create(u_id=1, p_id=3)
+    User_project.create(u_id=2, p_id=3)
+    User_project.create(u_id=3, p_id=3)
+    return "SUCCESS"
 
 @blueprint.route("/", methods=["GET", "POST"])
 def home():
