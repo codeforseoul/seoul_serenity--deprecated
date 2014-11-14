@@ -14,9 +14,11 @@ from seoul_serenity.extensions import (
 )
 from seoul_serenity import public, user, api, project, client_mayor, client_committee
 
-import sys
-reload(sys)
-sys.setdefaultencoding("utf-8")
+# import sys
+# reload(sys)
+# sys.setdefaultencoding("utf-8")
+# MEMO : revert (db init error)
+# refer compat.py
 
 def create_app(config_object=ProdConfig):
     '''An application factory, as explained here:
