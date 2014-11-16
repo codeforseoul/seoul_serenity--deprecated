@@ -12,7 +12,7 @@ from seoul_serenity.extensions import (
     migrate,
     debug_toolbar,
 )
-from seoul_serenity import public, user, api, project, client_mayor, client_committee
+from seoul_serenity import public, user, api, project, client_mayor, client_committee, client
 
 # import sys
 # reload(sys)
@@ -51,6 +51,7 @@ def register_blueprints(app):
     app.register_blueprint(api.views.blueprint)
     app.register_blueprint(project.views.blueprint)
     # app.register_blueprint(comment.views.blueprint)
+    app.register_blueprint(client.views.blueprint)
     app.register_blueprint(client_mayor.views.blueprint)
     app.register_blueprint(client_committee.views.blueprint)
     return None

@@ -23,5 +23,5 @@ def admin_required(func):
 		if current_user.get_id() == 1 :
 			return func(*args, **kwargs)
 		# return current_app.login_manager.unauthorized()
-		return 'testing'
+		return 'error'
 	return decorated_view
