@@ -32,3 +32,9 @@ Flask-Bcrypt==0.6.0
 
 # Caching
 Flask-Cache>=0.12
+
+# Management script
+Flask-Script
+
+# Debug toolbar
+Flask-DebugToolbar==0.9.0
