@@ -13,6 +13,7 @@ First, set your app's secret key as an environment variable. For example, exampl
 .. code-block:: bash
 
 	export SEOUL_SERENITY_SECRET='something-really-secret'
+	export DATABASE_URL='database-uri'
 
 
 Then run the following commands to bootstrap your environment.
