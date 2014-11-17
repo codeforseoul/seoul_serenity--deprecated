@@ -28,29 +28,30 @@
         </div><!-- /.container-fluid -->
     </nav>
 
-    <div class="container">
+<div class="btn-group" role="group" aria-label="..." width="100%">
+  <button type="button" class="btn btn-default active">전체</button>
+  <button type="button" class="btn btn-default">부서별</button>
+</div>
 
-        <h1 class="well text-center">
-            <span class="wonson-02"><img src="{{ url_for('static', filename='assets/img/wonson-02.png') }}"></span>
-            {{ current_user.name }} 위원님 <br>
-            현재 시정날씨는<br>어떤가요?
-        </h1> 
+<br/><br/>
 
-        <div class="page-header">
-          <h3 class="text-center"><span class="label label-primary">11월</span> 평가할 정책을 선택해주세요</h3>
-        </div>
+<div class="list-group">
+  <a href="#" class="list-group-item">어린이 놀이터 혁신 사업</a>
+  <a href="#" class="list-group-item">어린이 놀이터 혁신 사업</a>
+  <a href="#" class="list-group-item">어린이 놀이터 혁신 사업</a>
+  <a href="#" class="list-group-item">어린이 놀이터 혁신 사업</a>
+  <a href="#" class="list-group-item">어린이 놀이터 혁신 사업</a>
+</div>
+     
+<br/><br/>
 
-        <div class="list-group">
-            {% for project in projects %}
-            <a href="{{ url_for('client.view', project_id=project.id) }}" class="list-group-item">
-              <i class="fa fa-angle-right fa-lg pull-right"></i>
-              <span class="label label-danger">미완료</span> {{ project.name }}</a>
-            {% endfor %}
-        </div>
+<div class="btn-group" role="group" aria-label="...">
+  <button type="button" class="btn btn-default active">천둥</button>
+  <button type="button" class="btn btn-default">흐림</button>
+  <button type="button" class="btn btn-default">구름</button>
+  <button type="button" class="btn btn-default">맑음</button>
 
-    </div>
-
-
+</div>
 
     {% include "client/__footer.html" %}
 

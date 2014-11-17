@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <title>서울 맑음 -  코드포서울</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,target-densitydpi=medium-dpi">
+  <meta name="apple-mobile-web-app-capable" content="no">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <link href="{{ url_for('static', filename='assets/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/css/font-awesome.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/css/style.css') }}" rel="stylesheet">
+</head>
+<body id="seoul-03">
+
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a href="javascript:history.back()" class="navbar-toggle">
+                    <i class="fa fa-angle-left fa-lg"></i> 이전
+                </a>
+                <a class="navbar-brand navbar-brand-centered" href="{{ url_for('client.home') }}"><img src="{{ url_for('static', filename='assets/img/logo.png') }}" class=""></a>
+            </div>
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="container">
+
+        <p class="lead">
+            {{ project.name }}<br/>
+            {{ project.description }}
+        </p>
+
+        <div class="panel panel-default past-weather">
+            <div class="panel-heading">8/1 평가</div>
+
+
+            <div class="panel-body">
+
+                <div class="row">
+                    <div class="col-xs-12 weather">
+                        <p><img src="{{ url_for('static', filename='assets/img/weather-02.png') }}"></p>
+                        <p>예산이 없어요</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading">홍길동 위원님의 한마디</h4>
+                    <p class="list-group-item-text">현재 프로젝트 진행이 매우 더딥니다. 시장님의 한마디가 필요해요</p>
+                </li>
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading">담당관(장승훈)의 답변</h4>
+                    <p class="list-group-item-text">현재 시장님과 회의를 진행하였습니다.피드백이 있을 예정입니다.감사합니다.</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="btn-group btn-group-lg seoul-buttons">
+            <a href="{{ url_for("client.view", project_id=project.id) }}" class="btn btn-primary active">현재평가</a>
+            <a href="{{ url_for("client.list", project_id=project.id) }}" class="btn btn-default">지난평가</a>
+        </div>
+
+    </div>
+
+    {% include "client/committee/footer.html" %}
+
+<script src="{{ url_for('static', filename='assets/js/jquery-2.0.2.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/plugin/bootstrap-customize/3.2.0/js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/script.js') }}"></script>
+
+
+
+
+</body>
+</html>

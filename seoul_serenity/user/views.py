@@ -27,18 +27,6 @@ def member(user_id):
 	return render_template("users/member.html", user=user, projects=projects)
 
 
-@blueprint.route("/")
-def dashboard():
-    projects = []
-    if current_user and current_user.is_authenticated():
-        user_projects = User_project.query.filter_by(u_id=current_user.id)
-        for user_project in user_projects:
-            project = Project.get_by_id(user_project.p_id)
-            projects.append(project)
-        return render_template("client/home.html", projects=projects)
-    return redirect(url_for("client.login"))
-
-
 @blueprint.route("/assign/<int:user_id>")
 def assign(user_id):
 	projects = Project.query.all()

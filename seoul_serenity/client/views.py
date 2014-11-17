@@ -33,7 +33,7 @@ def login():
             login_user(form.user)
             # flash("You are logged in.", 'success')
             # redirect_url = request.args.get("next") or url_for("client.view")
-            redirect_url = url_for("client.dashboard")
+            redirect_url = url_for("client.home")
             return redirect(redirect_url)
         else:
         	# return redirect_url(url_for("client.home"))
@@ -43,7 +43,7 @@ def login():
 
 
 @blueprint.route("/")
-def dashboard():
+def home():
     projects = []
     if current_user and current_user.is_authenticated():
         user_projects = User_project.query.filter_by(u_id=current_user.id)
@@ -58,17 +58,18 @@ def dashboard():
 @blueprint.route("/view/<int:project_id>")
 def view(project_id):
 	project = Project.query.filter_by(id=project_id).first_or_404()	
-	return render_template("client/committee/view.html", project=project)
+	return render_template("client/view.html", project=project)
 
 # @blueprint.route("/write")
 @blueprint.route("/write/<int:project_id>")
 def write(project_id):
 	project = Project.query.filter_by(id=project_id).first_or_404()
-	return render_template("client/committee/write.html", project=project)
+	return render_template("client/write.html", project=project)
 
-@blueprint.route("/list")
-def list():
-	return render_template("client/committee/list.html")
+@blueprint.route("/list/<int:project_id>")
+def list(project_id):
+    project = Project.query.filter_by(id=project_id).first_or_404()
+    return render_template("client/list.html", project=project)
 
 # @blueprint.route("/login")
 # def login():
