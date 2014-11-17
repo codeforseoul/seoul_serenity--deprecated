@@ -27,15 +27,16 @@ def load_user(id):
 def index():
     return render_template("public/index.html")
 
-# Admin, Mayor, Committee
 @blueprint.route("/put-dummy-data")
 def putTestData():
     User.query.delete()
     Project.query.delete()
     User_project.query.delete()
-    User.create(username=u"김위원",email="comm1@test.com",password="testtest",first_name="ilyong",last_name="shin",active=True)
-    User.create(username=u"박위원",email="comm2@test.com",password="testtest",first_name="ilyong",last_name="shin",active=True)
-    User.create(username=u"정의원",email="comm3@test.com",password="testtest",first_name="ilyong",last_name="shin",active=True)
+    User.create(username="admin",email="admin@test.com",password="123456",name="관리자",active=True)
+    User.create(username="wonsoon",email="wonsoon@test.com",password="123456",name="박원순",active=True)
+    User.create(username="test1",email="comm1@test.com",password="123456",name="홍길동",active=True)
+    User.create(username="test2",email="comm2@test.com",password="123456",name="차태현",active=True)
+    User.create(username="test3",email="comm3@test.com",password="123456",name="이순신",active=True)
     Project.create(name=u"어린이집늘리기",start_date=datetime.now(),end_date=(datetime.now()+timedelta(days=7)),description=u"어린이집을 늘려야 하거든요")
     Project.create(name=u"경로당늘리기",start_date=datetime.now(),end_date=(datetime.now()+timedelta(days=7)),description=u"경로당을 늘려야 하거든요")
     Project.create(name=u"카페늘리기",start_date=datetime.now(),end_date=(datetime.now()+timedelta(days=7)),description=u"카페를 늘려야 하거든요")

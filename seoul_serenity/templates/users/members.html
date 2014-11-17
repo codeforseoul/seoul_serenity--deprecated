@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>Welcome {{ session.username }}</h1>
-    <h3>This is the members-only page.</h3>
+<!--     <h1>Welcome {{ session.username }}</h1>
+    <h3>This is the members-only page.</h3> -->
 
 	<div class="panel panel-default">
 		<!-- Default panel contents -->
@@ -12,6 +12,7 @@
 			<tr>
 				<td><b>ID</b></td></td>
 				<td><b>Username</b></td>
+				<td><b>Name</b></td>
 				<td><b>Email</b></td>
 				<td></td>
 			</tr>
@@ -19,6 +20,7 @@
 			<tr>
 				<td>{{ user.id }}</td>
 				<td>{{ user.username }}</td>
+				<td>{{ user.name }}</td>
 				<td>{{ user.email }}</td>
 				<td><a href="{{ url_for('user.member', user_id=user.id) }}">View</a></td>
 			</tr>

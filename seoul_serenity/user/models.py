@@ -32,12 +32,11 @@ class User(UserMixin, SurrogatePK, Model):
 
     __tablename__ = 'users'
     username = Column(db.String(80), unique=True, nullable=False)
+    name = Column(db.String(30), nullable=True)
     email = Column(db.String(80), unique=True, nullable=False)
     #: The hashed password
     password = Column(db.String(128), nullable=True)
     created_at = Column(db.DateTime, nullable=False, default=dt.datetime.utcnow)
-    first_name = Column(db.String(30), nullable=True)
-    last_name = Column(db.String(30), nullable=True)
     active = Column(db.Boolean(), default=False)
     is_admin = Column(db.Boolean(), default=False)
     user_type = Column(db.Integer, default=0)
@@ -61,10 +60,6 @@ class User(UserMixin, SurrogatePK, Model):
     def get_id(self):
         return unicode(self.id)
             
-    @property
-    def full_name(self):
-        return "{0} {1}".format(self.first_name, self.last_name)
-
     def __repr__(self):
         return '<User({username!r})>'.format(username=self.username)
 
