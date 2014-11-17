@@ -26,7 +26,7 @@ Then run the following commands to bootstrap your environment.
 	python manage.py db init
 	python manage.py db migrate
 	python manage.py db upgrade
-	python manage.py server
+	python manage.py runserver -h 0.0.0.0 (-p PORTNUMBER)
 
 
 
