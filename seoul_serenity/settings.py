@@ -4,7 +4,7 @@ import os
 os_env = os.environ
 
 class Config(object):
-    SECRET_KEY = 'dfadsfasdfasdfasdfasdfasdf' #os_env['SEOUL_SERENITY_SECRET']  # TODO: Change me
+    SECRET_KEY = os_env['SEOUL_SERENITY_SECRET']  # TODO: Change me
     APP_DIR = os.path.abspath(os.path.dirname(__file__))  # This directory
     PROJECT_ROOT = os.path.abspath(os.path.join(APP_DIR, os.pardir))
     BCRYPT_LOG_ROUNDS = 13
@@ -19,7 +19,7 @@ class ProdConfig(Config):
     ENV = 'prod'
     DEBUG = False
     # SQLALCHEMY_DATABASE_URI = 'postgresql://localhost/example'  # TODO: Change me
-    SQLALCHEMY_DATABASE_URI = 'postgres://ktluxmzlqucwdp:z2ivx-Mpj5jkdhfB9qdQrz-OMa@ec2-174-129-218-200.compute-1.amazonaws.com:5432/d90sfi75dq6h1c'  # TODO: Change me
+    SQLALCHEMY_DATABASE_URI = os_env['DATABASE_URL']
     DEBUG_TB_ENABLED = False  # Disable Debug toolbar
 
 
