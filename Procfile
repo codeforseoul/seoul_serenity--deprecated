@@ -1,1 +1,1 @@
-web: gunicorn seoul_serenity.app:create_app
+web: gunicorn seoul_serenity.app:create_app\(\) -b 0.0.0.0:$PORT -w 3
