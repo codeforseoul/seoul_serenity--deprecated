@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, redirect, url_for
 
 # from flask import (Blueprint, request, render_template, flash, url_for,
 #                     redirect, session)
@@ -24,8 +24,8 @@ blueprint = Blueprint("client", __name__, url_prefix='/client',
 def load_user(id):
     return User.get_by_id(int(id))
 
-@blueprint.route("/", methods=["GET", "POST"])
-def home():
+@blueprint.route("/login", methods=["GET", "POST"])
+def login():
     form = LoginForm(request.form)
     # Handle logging in
     if request.method == 'POST':
@@ -33,25 +33,26 @@ def home():
             login_user(form.user)
             # flash("You are logged in.", 'success')
             # redirect_url = request.args.get("next") or url_for("client.view")
-            redirect_url = url_for("client.view")
+            redirect_url = url_for("client.dashboard")
             return redirect(redirect_url)
         else:
         	# return redirect_url(url_for("client.home"))
-        	return render_template("client/home.html", form=form)
+        	return render_template("client/login.html", form=form)
             # flash_errors(form)
-    return render_template("client/home.html", form=form)
+    return render_template("client/login.html", form=form)
 
 
-# @blueprint.route("/")
-# def home():
-# 	projects = []
-# # TODO : replace u_id=1 to current_user 
-# 	# if current_user and current_user.is_authenticated():
-# 	user_projects = User_project.query.filter_by(u_id=1)
-# 	for user_project in user_projects:
-# 		project = Project.get_by_id(user_project.p_id)
-# 		projects.append(project)
-# 	return render_template("client/home.html", projects=projects)
+@blueprint.route("/")
+def dashboard():
+    projects = []
+    if current_user and current_user.is_authenticated():
+        user_projects = User_project.query.filter_by(u_id=current_user.id)
+        for user_project in user_projects:
+            project = Project.get_by_id(user_project.p_id)
+            projects.append(project)
+        return render_template("client/home.html", projects=projects)
+    return redirect(url_for("client.login"))
+
 
 # @blueprint.route("/view")
 @blueprint.route("/view/<int:project_id>")
@@ -69,9 +70,9 @@ def write(project_id):
 def list():
 	return render_template("client/committee/list.html")
 
-@blueprint.route("/login")
-def login():
-	return render_template("client/committee/login.html")
+# @blueprint.route("/login")
+# def login():
+# 	return render_template("client/committee/login.html")
 
 
 # @blueprint.route("/")

@@ -1,15 +1,31 @@
 
 {% extends "layout.html" %}
 {% block content %}
-<!--     <h1>Welcome {{ session.username }}</h1>
- --> <!--    <h3>This is the members-only page.</h3> -->
-    <h3>{{ user.name }} ({{ user.username }})</h3>
-<div>
-    <span class="glyphicon glyphicon-envelope"></span> {{ user.email }}
+
+
+<div class="panel panel-default">
+<div class="panel-heading">{{ user.name }} ({{ user.username }})</div>
+<ul class="list-group">
+  <li class="list-group-item">이름 : {{ user.name }}</li>
+  <li class="list-group-item">이메일 : {{ user.email }}</li>
+  <li class="list-group-item">아이디 : {{ user.username }}</li>
+</ul>
 </div>
+
     <button type="submit" class="btn btn-default">정보 변경</button>
-    <a href="{{ url_for('user.assign', user_id=user.id) }}">
-    <button type="submit" class="btn btn-default">프로젝트 할당</button></a>
     <button type="submit" class="btn btn-default">삭제</button>
+
+<br/><br/>
+
+<div class="panel panel-default">
+<div class="panel-heading">할당된 프로젝트</div>
+<ul class="list-group">
+{% for project in projects %}
+<li class="list-group-item">{{ project.name }}</li>
+{% endfor %} 
+</ul>
+</div>
+
+<a href="{{ url_for('user.assign', user_id=user.id) }}"><button type="submit" class="btn btn-default">프로젝트 할당</button></a>
 
 {% endblock %}

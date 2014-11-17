@@ -1,23 +1,24 @@
 
 {% extends "layout.html" %}
 {% block content %}
-<!--     <h1>Welcome {{ session.username }}</h1>
- -->    <h2>{{ project.name }}</h2>
-    <ul>
-    	<li>ID : {{ project.id }}</li>
-    	<li>Name : {{ project.name }}</li>
-    	<li>Start Date : {{ project.start_date }}</li>
-    	<li>End Date: {{ project.end_date }}</li>
-    	<li>Description: {{ project.description }}</li>
-    	<li>Created Date: {{ project.created_at }}</li>
-    	<li>Created User: {{ project.created_user_id }}</li>
-    	<li>modified_at: {{ project.modified_at }}</li>
-    	<li>modified User: {{ project.user_id }}</li>
-    	<li>Display: {{ project.display_yn }}</li>
 
+<div class="panel panel-default">
+    <div class="panel-heading">{{ project.name }}</div>
+    <ul class="list-group">
+        <li class="list-group-item">ID : {{ project.id }}</li>
+        <li class="list-group-item">Name : {{ project.name }}</li>
+        <li class="list-group-item">Start Date : {{ project.start_date }}</li>
+        <li class="list-group-item">End Date: {{ project.end_date }}</li>
+        <li class="list-group-item">Description: {{ project.description }}</li>
+        <li class="list-group-item">Created Date: {{ project.created_at }}</li>
+        <li class="list-group-item">Created User: {{ project.created_user_id }}</li>
+        <li class="list-group-item">modified_at: {{ project.modified_at }}</li>
+        <li class="list-group-item">modified User: {{ project.user_id }}</li>
+        <li class="list-group-item">Display: {{ project.display_yn }}</li>
     </ul>
+</div>
 
-    <a href="{{ url_for('project.projects') }}"><button type="submit" class="btn btn-default">수정</button></a>
-    <a href="{{ url_for('project.projects') }}"><button type="submit" class="btn btn-default">목록</button></a>
+<a href="{{ url_for('project.projects') }}"><button type="submit" class="btn btn-default">수정</button></a>
+<a href="{{ url_for('project.projects') }}"><button type="submit" class="btn btn-default">목록</button></a>
 
 {% endblock %}

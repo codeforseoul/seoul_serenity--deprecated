@@ -25,7 +25,8 @@
       <li><a href="{{ url_for('public.about') }}">About</a></li>
       <li><a href="{{ url_for('user.members') }}">Users</a></li>
       <li><a href="{{ url_for('project.projects') }}">Projects</a></li>
-
+       <li><a href="{{ url_for('public.testData') }}">TESTING</a></li>
+ 
      </ul>
     {% if current_user and current_user.is_authenticated() %}
     <ul class="nav navbar-nav navbar-right">
