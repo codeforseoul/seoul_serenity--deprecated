@@ -82,4 +82,20 @@ for Mac
 
 	brew install python3
 	virtualenv —python=/user/local/bin/python3 env
-	
+
+
+
+[Docker](http://docker.io/)(dev mode)
+------
+
+1. python 2.7.3 / Debian:wheezy
+
+.. code-block:: bash
+
+	docker pull thechunsik/seoulserenity:python2
+	docker run -i -t -p 5000:5000 thechunsik/seoulserenity:python2 /bin/bash
+	export SEOUL_SERENITY_SECRET='something-really-secret'
+	export DATABASE_URL='database-uri'
+	python manage.py runserver -h 0.0.0.0 (-p 5000)
+
+running on "DOCKER_HOST_IP_ADDRESS(14.63.219.127):5000"
