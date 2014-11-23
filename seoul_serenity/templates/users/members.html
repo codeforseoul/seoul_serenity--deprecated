@@ -12,7 +12,8 @@
 			<tr>
 				<td><b>ID</b></td></td>
 				<td><b>Username</b></td>
-				<td><b>Name</b></td>
+				<td><b>firstname</b></td>
+				<td><b>lastname</b></td>
 				<td><b>Email</b></td>
 				<td></td>
 			</tr>
@@ -20,7 +21,8 @@
 			<tr>
 				<td>{{ user.id }}</td>
 				<td>{{ user.username }}</td>
-				<td>{{ user.name }}</td>
+				<td>{{ user.firstname }}</td>
+				<td>{{ user.lastname }}</td>
 				<td>{{ user.email }}</td>
 				<td><a href="{{ url_for('user.member', user_id=user.id) }}">View</a></td>
 			</tr>

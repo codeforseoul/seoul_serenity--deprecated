@@ -17,7 +17,9 @@ class RegisterForm(Form):
     confirm = PasswordField('Verify password',
                 [DataRequired(), EqualTo('password', message='Passwords must match')])
 
-    name = TextField('이름', validators=[DataRequired(), Length(min=1, max=25)])
+    firstname = TextField('이름', validators=[DataRequired(), Length(min=1, max=25)])
+
+    lastname = TextField('성', validators=[DataRequired(), Length(min=1, max=25)])
 
     def __init__(self, *args, **kwargs):
         super(RegisterForm, self).__init__(*args, **kwargs)

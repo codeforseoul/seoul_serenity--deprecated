@@ -32,7 +32,8 @@ class User(UserMixin, SurrogatePK, Model):
 
     __tablename__ = 'users'
     username = Column(db.String(80), unique=True, nullable=False)
-    name = Column(db.String(30), nullable=True)
+    firstname = Column(db.String(30), nullable=True)
+    lastname = Column(db.String(30), nullable=True)
     email = Column(db.String(80), unique=True, nullable=False)
     #: The hashed password
     password = Column(db.String(128), nullable=True)
