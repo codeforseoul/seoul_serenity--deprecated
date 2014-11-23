@@ -14,8 +14,6 @@ from seoul_serenity.database import (
     SurrogatePK,
 )
 
-import urllib
-
 blueprint = Blueprint("project", __name__, url_prefix='/projects',
                         static_folder="../static")
 
