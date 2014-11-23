@@ -12,7 +12,7 @@ from seoul_serenity.extensions import (
     migrate,
     debug_toolbar,
 )
-from seoul_serenity import public, user, api, project, client_mayor, client_committee, client, storyboard
+from seoul_serenity import public, user, api, project, client_mayor, client_committee, client, storyboard, admin
 
 # TODO : 아래 코드로 인해 python3에서 db init 시 오류 발생 추후 확인 후 삭제 및 수정 (서영태)
 # import sys
@@ -60,6 +60,8 @@ def register_blueprints(app):
     app.register_blueprint(client_mayor.views.blueprint)
     app.register_blueprint(client_committee.views.blueprint)
     app.register_blueprint(storyboard.views.blueprint)
+    app.register_blueprint(admin.views.blueprint)
+
 
     return None
 
