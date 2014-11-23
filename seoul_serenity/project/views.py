@@ -35,7 +35,12 @@ def ttt():
 @blueprint.route("/")
 @login_required
 def projects():
-    projects = Project.query.all()
+    query = request.args.get('project')
+    if query:
+        projects = Project.query.filter(Project.name.like(unicode('%' + query + '%')))
+    else:
+        projects = Project.query.all()
+    
     return render_template("projects/projects.html", projects=projects)
 
 # @blueprint.route("/add")
