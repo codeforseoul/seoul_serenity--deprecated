@@ -1,4 +1,10 @@
 # -*- coding: utf-8 -*-
+
+# set default encoding from ascii to utf-8
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
 '''Public section, including homepage and signup.'''
 from flask import (Blueprint, request, render_template, flash, url_for,
                     redirect, session)
@@ -14,7 +20,6 @@ from seoul_serenity.database import db
 
 from seoul_serenity.project.models import Project
 
-
 blueprint = Blueprint('public', __name__, static_folder="../static")
 
 @login_manager.user_loader
@@ -26,42 +31,6 @@ def load_user(id):
 @blueprint.route("/index")
 def index():
     return render_template("public/index.html")
-
-
-@blueprint.route("/test")
-def testData():
-    User.query.delete()
-    Project.query.delete()
-    User_project.query.delete()    
-    User.create(username="admin",email="admin@test.com",password="123456",name=u"관리자",active=True)
-    User.create(username="wonsoon",email="wonsoon@test.com",password="123456",name=u"박원순",active=True)
-    User.create(username="test1",email="comm1@test.com",password="123456",name=u"홍길동",active=True)
-    User.create(username="test2",email="comm2@test.com",password="123456",name=u"차태현",active=True)
-    User.create(username="test3",email="comm3@test.com",password="123456",name=u"이순신",active=True)
-    Project.create(name=u"어린이집늘리기",start_date=datetime.now(),end_date=(datetime.now()+timedelta(days=7)),description=u"어린이집을 늘려야 하거든요")
-    Project.create(name=u"경로당늘리기",start_date=datetime.now(),end_date=(datetime.now()+timedelta(days=7)),description=u"경로당을 늘려야 하거든요")
-    Project.create(name=u"카페늘리기",start_date=datetime.now(),end_date=(datetime.now()+timedelta(days=7)),description=u"카페를 늘려야 하거든요")
-    Project.create(name=u"고양이 밥주기",start_date=datetime.now(),end_date=(datetime.now()+timedelta(days=7)),description=u"ㅇㅇㅇㅇ")
-    Project.create(name=u"강아지 밥주기",start_date=datetime.now(),end_date=(datetime.now()+timedelta(days=7)),description=u"ㅇㅇㅇㅇ")
-    Project.create(name=u"주차장 오천개 확보 사업",start_date=datetime.now(),end_date=(datetime.now()+timedelta(days=7)),description=u"ㅇㅇㅇㅇ")
-    Project.create(name=u"박원순 생일 파티",start_date=datetime.now(),end_date=(datetime.now()+timedelta(days=7)),description=u"ㅇㅇㅇㅇ")
-    Project.create(name=u"서영태 생일 파티",start_date=datetime.now(),end_date=(datetime.now()+timedelta(days=7)),description=u"ㅇㅇㅇㅇ")
-    Project.create(name=u"홍대 길거리 청소 프로젝트",start_date=datetime.now(),end_date=(datetime.now()+timedelta(days=7)),description=u"ㅇㅇㅇㅇ")
-    Project.create(name=u"태양열 전지 확보 사업",start_date=datetime.now(),end_date=(datetime.now()+timedelta(days=7)),description=u"ㅇㅇㅇㅇ")
-    Project.create(name=u"청계천 정화 사업",start_date=datetime.now(),end_date=(datetime.now()+timedelta(days=7)),description=u"ㅇㅇㅇㅇ")
-    Project.create(name=u"2014년 크리스마스 비밀 파티",start_date=datetime.now(),end_date=(datetime.now()+timedelta(days=7)),description=u"ㅇㅇㅇㅇ")
-    Project.create(name=u"2015년 신년회 프로젝트",start_date=datetime.now(),end_date=(datetime.now()+timedelta(days=7)),description=u"ㅇㅇㅇㅇ")
-    User_project.create(u_id=1, p_id=1)
-    User_project.create(u_id=2, p_id=1)
-    User_project.create(u_id=3, p_id=1)
-    User_project.create(u_id=1, p_id=2)
-    User_project.create(u_id=2, p_id=2)
-    User_project.create(u_id=3, p_id=2)
-    User_project.create(u_id=1, p_id=3)
-    User_project.create(u_id=2, p_id=3)
-    User_project.create(u_id=3, p_id=3)
-    flash("테스트 데이터가 생성되었습니다. ID : admin PW: 123456 ", 'success')
-    return redirect(url_for('public.home'))
 
 @blueprint.route("/", methods=["GET", "POST"])
 def home():
@@ -91,8 +60,8 @@ def register():
         new_user = User.create(username=form.username.data,
                         email=form.email.data,
                         password=form.password.data,
-                        first_name=form.name.data,
-                        last_name=form.familyname.data,
+                        firstname=form.firstname.data,
+                        lastname=form.lastname.data,
                         active=True)
         # new_user.update(commit=True, first_name=form.name.data, last_name=form.familyname.data)
         flash("Thank you for registering. You can now log in.", 'success')
@@ -105,3 +74,38 @@ def register():
 def about():
     form = LoginForm(request.form)
     return render_template("public/about.html", form=form)
+
+@blueprint.route("/test")
+def testData():
+    User.query.delete()
+    Project.query.delete()
+    User_project.query.delete()    
+    User.create(username="admin",email="admin@test.com",password="123456",firstname=u"리자",lastname=u"관",active=True)
+    User.create(username="wonsoon",email="wonsoon@test.com",password="123456",firstname=u"원순",lastname=u"박",active=True)
+    User.create(username="test1",email="comm1@test.com",password="123456",firstname=u"길동",lastname=u"홍",active=True)
+    User.create(username="test2",email="comm2@test.com",password="123456",firstname=u"태현",lastname=u"차",active=True)
+    User.create(username="test3",email="comm3@test.com",password="123456",firstname=u"순신",lastname=u"이",active=True)
+    Project.create(name=u"어린이집늘리기",start_date=datetime.now(),end_date=(datetime.now()+timedelta(days=7)),description=u"어린이집을 늘려야 하거든요")
+    Project.create(name=u"경로당늘리기",start_date=datetime.now(),end_date=(datetime.now()+timedelta(days=7)),description=u"경로당을 늘려야 하거든요")
+    Project.create(name=u"카페늘리기",start_date=datetime.now(),end_date=(datetime.now()+timedelta(days=7)),description=u"카페를 늘려야 하거든요")
+    Project.create(name=u"고양이 밥주기",start_date=datetime.now(),end_date=(datetime.now()+timedelta(days=7)),description=u"ㅇㅇㅇㅇ")
+    Project.create(name=u"강아지 밥주기",start_date=datetime.now(),end_date=(datetime.now()+timedelta(days=7)),description=u"ㅇㅇㅇㅇ")
+    Project.create(name=u"주차장 오천개 확보 사업",start_date=datetime.now(),end_date=(datetime.now()+timedelta(days=7)),description=u"ㅇㅇㅇㅇ")
+    Project.create(name=u"박원순 생일 파티",start_date=datetime.now(),end_date=(datetime.now()+timedelta(days=7)),description=u"ㅇㅇㅇㅇ")
+    Project.create(name=u"서영태 생일 파티",start_date=datetime.now(),end_date=(datetime.now()+timedelta(days=7)),description=u"ㅇㅇㅇㅇ")
+    Project.create(name=u"홍대 길거리 청소 프로젝트",start_date=datetime.now(),end_date=(datetime.now()+timedelta(days=7)),description=u"ㅇㅇㅇㅇ")
+    Project.create(name=u"태양열 전지 확보 사업",start_date=datetime.now(),end_date=(datetime.now()+timedelta(days=7)),description=u"ㅇㅇㅇㅇ")
+    Project.create(name=u"청계천 정화 사업",start_date=datetime.now(),end_date=(datetime.now()+timedelta(days=7)),description=u"ㅇㅇㅇㅇ")
+    Project.create(name=u"2014년 크리스마스 비밀 파티",start_date=datetime.now(),end_date=(datetime.now()+timedelta(days=7)),description=u"ㅇㅇㅇㅇ")
+    Project.create(name=u"2015년 신년회 프로젝트",start_date=datetime.now(),end_date=(datetime.now()+timedelta(days=7)),description=u"ㅇㅇㅇㅇ")
+    User_project.create(u_id=1, p_id=1)
+    User_project.create(u_id=2, p_id=1)
+    User_project.create(u_id=3, p_id=1)
+    User_project.create(u_id=1, p_id=2)
+    User_project.create(u_id=2, p_id=2)
+    User_project.create(u_id=3, p_id=2)
+    User_project.create(u_id=1, p_id=3)
+    User_project.create(u_id=2, p_id=3)
+    User_project.create(u_id=3, p_id=3)
+    flash("테스트 데이터가 생성되었습니다. ID : admin PW: 123456 ", 'success')
+    return redirect(url_for('public.home'))
