@@ -17,6 +17,8 @@ from seoul_serenity.user.models import User_project, User
 blueprint = Blueprint("client", __name__, url_prefix='/client',
                         static_folder="../static")
 
+# TODO 서영태 : client_committee, client_mayor 두개를 client로 통합해서 처리하게 변경
+
 
 # 우선은 페이지 하나 하나로 routing 시킴
 
@@ -24,6 +26,7 @@ blueprint = Blueprint("client", __name__, url_prefix='/client',
 def load_user(id):
     return User.get_by_id(int(id))
 
+# TODO 서영태 : login 후에 관리자 페이지 첫화면으로 이동하는 것을 수정
 @blueprint.route("/login", methods=["GET", "POST"])
 def login():
     form = LoginForm(request.form)

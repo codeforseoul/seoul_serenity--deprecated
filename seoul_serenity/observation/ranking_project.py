@@ -1,6 +1,8 @@
 import csv
 import math
 
+# TODO : 아래 알고리즘 확인 후 적용, 우선은 단순 평균치로 적용 (서영태)
+
 def read_csv(filename):
 	with open(filename,'rb') as csvfile:
 		reader=csv.reader(csvfile,delimiter=',')

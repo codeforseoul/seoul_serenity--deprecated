@@ -16,6 +16,7 @@ def flash_errors(form, category="warning"):
                     .format(getattr(form, field).label.text, error), category)
 
 
+# TODO 서영태 : admin_required decorator 추가
 # @login_required
 def admin_required(func):
 	@wraps(func)
