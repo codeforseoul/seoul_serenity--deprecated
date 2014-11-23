@@ -47,3 +47,7 @@ docs/_build
 # Virtualenvs
 env
 env*
+
+# OS Gernerated
+.DS_Store
+Thumbs.db
