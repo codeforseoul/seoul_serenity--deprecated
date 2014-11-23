@@ -85,7 +85,7 @@ for Mac
 
 
 
-[Docker](http://docker.io/)(dev mode)
+[Docker](http://docker.io/) (dev mode)
 ------
 
 1. python 2.7.3 / Debian:wheezy

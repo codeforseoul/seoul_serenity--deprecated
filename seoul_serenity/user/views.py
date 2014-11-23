@@ -9,6 +9,7 @@ blueprint = Blueprint("user", __name__, url_prefix='/users',
                         static_folder="../static")
 
 
+# TODO 서영태 : Pagination 적용 (MUST)
 @blueprint.route("/")
 @login_required
 def members():

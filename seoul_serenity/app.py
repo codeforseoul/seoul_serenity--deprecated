@@ -14,12 +14,17 @@ from seoul_serenity.extensions import (
 )
 from seoul_serenity import public, user, api, project, client_mayor, client_committee, client, storyboard
 
+# TODO : 아래 코드로 인해 python3에서 db init 시 오류 발생 추후 확인 후 삭제 및 수정 (서영태)
 # import sys
 # reload(sys)
 # sys.setdefaultencoding("utf-8")
 # MEMO : revert (db init error)
 # refer compat.py
 
+
+
+# TODO : 현재 관리자 페이지와 클라이언트가 하나의 app으로 되어 있는데 
+# 이 부분을 서로 분리해서 처리가 가능한지, 그럴 경우에 어떤 장점이 있는지 확인
 def create_app(config_object=ProdConfig):
     '''An application factory, as explained here:
         http://flask.pocoo.org/docs/patterns/appfactories/
@@ -59,6 +64,7 @@ def register_blueprints(app):
     return None
 
 
+# TODO : 현재 기본 설정된 에러 페이지로 이동, cleint app의 경우 별도 새로 제작된 페이지로 이동되게 수정
 def register_errorhandlers(app):
     def render_error(error):
         # If a HTTPException, pull the `code` attribute; default to 500

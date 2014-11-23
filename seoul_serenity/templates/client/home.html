@@ -10,11 +10,14 @@
   <meta name="apple-mobile-web-app-capable" content="no">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
+<!-- TODO : Flask-asset extention 적용할것.. public에 적용된 부분 참고 -->
+
   <link href="{{ url_for('static', filename='assets/css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ url_for('static', filename='assets/css/font-awesome.min.css') }}" rel="stylesheet">
   <link href="{{ url_for('static', filename='assets/css/style.css') }}" rel="stylesheet">
 </head>
 <body id="seoul-02">
+<!-- TODO : 중복된 부분 __layout.html으로 분리 (서영태) -->
 
     <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
@@ -54,6 +57,7 @@
 
     {% include "client/__footer.html" %}
 
+<!-- TODO : Flask-asset extention 적용할것.. public에 적용된 부분 참고 -->
 <script src="{{ url_for('static', filename='assets/js/jquery-2.0.2.min.js') }}"></script>
 <script src="{{ url_for('static', filename='assets/plugin/bootstrap-customize/3.2.0/js/bootstrap.min.js') }}"></script>
 <script src="{{ url_for('static', filename='assets/js/script.js') }}"></script>

@@ -33,6 +33,7 @@ def ttt():
     else:
         return "....."
 
+# TODO 서영태 : Pagination 적용 (MUST)
 @blueprint.route("/")
 @login_required
 def projects():

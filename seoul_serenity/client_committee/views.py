@@ -11,6 +11,10 @@ blueprint = Blueprint("client_committee", __name__, url_prefix='/client/committe
                         static_folder="../static")
 
 
+# TODO : client_committee, client_mayor 두개를 client로 통합
+# 아래코드는 client로 통합 후 추후 삭제
+
+
 # 우선은 페이지 하나 하나로 routing 시킴
 
 @blueprint.route("/")

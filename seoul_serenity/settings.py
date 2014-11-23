@@ -18,6 +18,7 @@ class ProdConfig(Config):
     """Production configuration."""
     ENV = 'prod'
     DEBUG = False
+    # TODO 서영태 : heroku에서는 DATABASE_URL로 매팅
     # SQLALCHEMY_DATABASE_URI = 'postgresql://localhost/example'  # TODO: Change me
     SQLALCHEMY_DATABASE_URI = os_env['DATABASE_URL']
     DEBUG_TB_ENABLED = False  # Disable Debug toolbar

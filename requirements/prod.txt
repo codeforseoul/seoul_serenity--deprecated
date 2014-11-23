@@ -33,6 +33,9 @@ Flask-Bcrypt==0.6.0
 # Caching
 Flask-Cache>=0.12
 
+
+# TODO : Flask-Script / Flask-DebugToolbar의 경우 dev 환경에서만 필요하다고 판단
+# 기존에도 dev.txt에만 있었으나 heroku deploy 시 오류로 인해 임시로 이동 추후 정리할것 (서영태)
 # Management script
 Flask-Script
 

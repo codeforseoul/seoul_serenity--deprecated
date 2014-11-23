@@ -26,6 +26,7 @@ blueprint = Blueprint('public', __name__, static_folder="../static")
 def load_user(id):
     return User.get_by_id(int(id))
 
+# TODO 서영태 : 관리자 기능에 해당되는 부분들은 /admin 으로 routing 하도록 수정하는게 어떤지..
 
 # Admin, Mayor, Committee
 @blueprint.route("/index")
@@ -75,6 +76,7 @@ def about():
     form = LoginForm(request.form)
     return render_template("public/about.html", form=form)
 
+# TODO 서영태 : 시뮬레이션을 위한 테스트 데이터 관련 부분은 별도 모듈로 이동
 @blueprint.route("/test")
 def testData():
     User.query.delete()
