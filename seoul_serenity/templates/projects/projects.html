@@ -1,34 +1,40 @@
 {% extends "layout.html" %}
 {% block content %}
 
-    <h1>Project List</h1>
-<!--     <h3>This is the members-only page.</h3>
- -->
+	<div class="row">
+		<div class="col-md-4"><h1>Project List</h1></div>
+		<div class="col-md-4 col-md-offset-4" style="text-align: right; margin-top: 20px;">
+			<form action="" class="form-inline">
+				<input class="form-control" type="text" name="project">
+				<button class="btn btn-default" type="submit">검색</button>
+			</form>
+		</div>
+	</div>
+
 	<div class="panel panel-default">
 		<!-- Default panel contents -->
 		<div class="panel-heading">프로젝트 목록</div>
-
+		
 		<!-- Table -->
 		<table class="table">
-		<tr>
-			<td><b>ID</b></td></td>
-			<td><b>프로젝트 이름</b></td>
-			<td><b>프로젝트 시작일</b></td>
-			<td><b>프로젝트 종료일</b></td>
-
-			<td></td>
-			<td></td>
-		</tr>
-		{% for project in projects %}
-		<tr>
-			<td>{{ project.id }}</td>
-			<td>{{ project.name }}</td>
-			<td>{{ project.start_date }}</td>
-			<td>{{ project.end_date }}</td>
-			<td><a href="{{ url_for('project.detail', project_id=project.id) }}">View</a></td>
-			<td><a href="{{ url_for('project.close', project_id=project.id) }}">Close</a></td>
-		</tr>
-		{% endfor %}
+			<tr>
+				<td><b>ID</b></td>
+				<td><b>프로젝트 이름</b></td>
+				<td><b>프로젝트 시작일</b></td>
+				<td><b>프로젝트 종료일</b></td>
+				<td></td>
+				<td></td>
+			</tr>
+			{% for project in projects %}
+			<tr>
+				<td>{{ project.id }}</td>
+				<td>{{ project.name }}</td>
+				<td>{{ project.start_date }}</td>
+				<td>{{ project.end_date }}</td>
+				<td><a href="{{ url_for('project.detail', project_id=project.id) }}">View</a></td>
+				<td><a href="{{ url_for('project.close', project_id=project.id) }}">Close</a></td>
+			</tr>
+			{% endfor %}
 		</table>
 	</div>
 	<a href="{{ url_for('project.register') }}"><button type="submit" class="btn btn-default">신규 프로젝트 등록</button></a>
