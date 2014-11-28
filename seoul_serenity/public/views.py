@@ -1,10 +1,5 @@
 # -*- coding: utf-8 -*-
 
-# set default encoding from ascii to utf-8
-import sys
-reload(sys)
-sys.setdefaultencoding('utf-8')
-
 '''Public section, including homepage and signup.'''
 from flask import (Blueprint, request, render_template, flash, url_for,
                     redirect, session)
@@ -81,7 +76,7 @@ def about():
 def testData():
     User.query.delete()
     Project.query.delete()
-    User_project.query.delete()    
+    User_project.query.delete()
     User.create(username="admin",email="admin@test.com",password="123456",firstname=u"리자",lastname=u"관",active=True)
     User.create(username="wonsoon",email="wonsoon@test.com",password="123456",firstname=u"원순",lastname=u"박",active=True)
     User.create(username="test1",email="comm1@test.com",password="123456",firstname=u"길동",lastname=u"홍",active=True)
